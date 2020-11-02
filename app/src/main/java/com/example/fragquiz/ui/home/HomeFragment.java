@@ -1,9 +1,11 @@
 package com.example.fragquiz.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,10 +15,12 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.fragquiz.R;
+import com.example.fragquiz.slide.ScreenSlideActivity;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
+    Button button_Start;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -31,5 +35,18 @@ public class HomeFragment extends Fragment {
             }
         });
         return root;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        button_Start = (Button) getActivity().findViewById(R.id.button_Start);
+        button_Start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), ScreenSlideActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }
