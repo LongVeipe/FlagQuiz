@@ -11,7 +11,11 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.fragquiz.Country.Country;
+import com.example.fragquiz.Country.CountryController;
 import com.example.fragquiz.R;
+
+import java.util.ArrayList;
 
 public class ScreenSlideActivity extends FragmentActivity {
     /**
@@ -30,6 +34,10 @@ public class ScreenSlideActivity extends FragmentActivity {
      */
     private PagerAdapter pagerAdapter;
 
+    //csdl
+    CountryController countryController;
+    ArrayList<Country> listCountry;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +45,18 @@ public class ScreenSlideActivity extends FragmentActivity {
 
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
+        countryController = new CountryController(this);
+        listCountry = new ArrayList<Country>();
+        listCountry = countryController.getCountry("AFR");
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(pagerAdapter);
         mPager.setPageTransformer(true, new ZoomOutPageTransformer());
+
+
+    }
+    public ArrayList<Country> getData()
+    {
+        return listCountry;
     }
 
     @Override
@@ -66,12 +83,13 @@ public class ScreenSlideActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return new ScreenSlidePageFragment();
+            return ScreenSlidePageFragment.create(position);
         }
 
         @Override
         public int getCount() {
-            return NUM_PAGES;
+            return listCountry.size();
+            //return NUM_PAGES;
         }
     }
     public class ZoomOutPageTransformer implements ViewPager.PageTransformer {

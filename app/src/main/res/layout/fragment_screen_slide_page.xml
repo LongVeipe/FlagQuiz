@@ -34,7 +34,7 @@
                     android:text="Câu 1" />
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/imageView_Frag"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     app:srcCompat="@drawable/ic_launcher_background" />
@@ -44,13 +44,13 @@
 
 
             <RadioGroup
-                android:id="@+id/radGroup"
+                android:id="@+id/radioGroup_Ans"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp">
 
                 <RadioButton
-                    android:id="@+id/radA"
+                    android:id="@+id/rad_A"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
@@ -60,7 +60,7 @@
                     android:text="Trả lời 1" />
 
                 <RadioButton
-                    android:id="@+id/radB"
+                    android:id="@+id/rad_B"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
@@ -70,7 +70,7 @@
                     android:text="Trả lời 2" />
 
                 <RadioButton
-                    android:id="@+id/radC"
+                    android:id="@+id/rad_C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
@@ -80,7 +80,7 @@
                     android:text="Trả lời 3" />
 
                 <RadioButton
-                    android:id="@+id/radD"
+                    android:id="@+id/rad_D"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
